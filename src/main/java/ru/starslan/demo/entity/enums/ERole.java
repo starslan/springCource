@@ -1,4 +1,4 @@
-package ru.starslan.entity.enums;
+package ru.starslan.demo.entity.enums;
 
 public enum ERole {
     ROLE_USER,
