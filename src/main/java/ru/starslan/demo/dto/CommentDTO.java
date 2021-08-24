@@ -1,0 +1,13 @@
+package ru.starslan.demo.dto;
+
+import lombok.Data;
+
+import javax.validation.constraints.NotEmpty;
+
+@Data
+public class CommentDTO {
+    private Long id;
+    @NotEmpty
+    private String massage;
+    private String username;
+}
