@@ -5,13 +5,17 @@ import jdk.jshell.spi.ExecutionControl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import ru.starslan.demo.dto.UserDTO;
 import ru.starslan.demo.entity.User;
 import ru.starslan.demo.entity.enums.ERole;
 import ru.starslan.demo.exceptions.UserExistException;
 import ru.starslan.demo.payload.request.SignRequest;
 import ru.starslan.demo.repository.UserRepository;
+
+import java.security.Principal;
 
 @Service
 public class UserService {
@@ -47,5 +51,24 @@ public class UserService {
             throw new UserExistException(user.getName() + "already exist");
         }
 
+    }
+
+    public User updateUser(UserDTO userDTO, Principal principal){
+        User user = getUserByPrincipal(principal);
+        user.setName(userDTO.getFirstname());
+        user.setLastName(userDTO.getLastname());
+        user.setUserName(userDTO.getUsername());
+        user.setBio(userDTO.getBio());
+
+        return  userRepository.save(user);
+    }
+
+    public User getCurrentUser(Principal principal){
+        return getUserByPrincipal(principal);
+    }
+
+    private User getUserByPrincipal(Principal principal){
+        String username = principal.getName();
+        return userRepository.findUserByUserName(username).orElseThrow(()-> new UsernameNotFoundException("Username not found " + username));
     }
 }
