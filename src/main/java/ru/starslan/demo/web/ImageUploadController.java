@@ -25,7 +25,7 @@ public class ImageUploadController {
     throws IOException {
 
         imageService.uploadImageToUser(file, principal);
-        return  new ResponseEntity.ok(new MessageResponse("Image Upload Succefuly"));
+        return  new ResponseEntity<>(new MessageResponse("Image Upload Successfuly"), HttpStatus.OK);
 
     }
 
@@ -34,7 +34,7 @@ public class ImageUploadController {
                                                              @RequestParam("file") MultipartFile file,
                                                              Principal principal) throws IOException{
         imageService.uploadImageToPost(file, principal, Long.parseLong(postId));
-        return new ResponseEntity.ok(new MessageResponse("Image Upload Succefuly"));
+        return new ResponseEntity<>(new MessageResponse("Image Upload Successfuly"), HttpStatus.OK);
     }
 
     @GetMapping("/profileImage")

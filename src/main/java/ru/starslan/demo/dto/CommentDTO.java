@@ -8,6 +8,6 @@ import javax.validation.constraints.NotEmpty;
 public class CommentDTO {
     private Long id;
     @NotEmpty
-    private String massage;
+    private String message;
     private String username;
 }

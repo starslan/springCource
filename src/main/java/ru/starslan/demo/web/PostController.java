@@ -40,6 +40,7 @@ public class PostController {
 
         Post post = postService.createPost(postDTO, principal);
         PostDTO createdPost = postFacade.postToPostDTO(post);
+        System.out.println(createdPost.toString());
 
         return new ResponseEntity<>(postDTO, HttpStatus.OK);
 
