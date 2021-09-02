@@ -30,6 +30,6 @@ export class ImageUploadService {
   }
 
   getImageToPost(postId: number){
-    return this.http.get(IMAGE_API + postId+'/upload')
+    return this.http.get(IMAGE_API + postId+'/image')
   }
 }
