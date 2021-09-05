@@ -26,7 +26,7 @@ export class TokenStorageService {
   }
 
   public getUser(): any{
-    return JSON.parse(sessionStorage.getItem(USER_KEY));
+    return JSON.parse(String(sessionStorage.getItem(USER_KEY)));
   }
 
   logOut(): void{

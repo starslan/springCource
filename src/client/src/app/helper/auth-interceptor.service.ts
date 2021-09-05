@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable, InjectionToken} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {TokenStorageService} from "../service/token-storage.service";
-import {Observable} from "rxjs";
+// import {Observable} from "rxjs";
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
@@ -25,5 +27,6 @@ export class AuthInterceptorService implements HttpInterceptor{
 }
 
 export const authInterceptorProviders = [
-  {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptorService, multi: true}
+  {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptorService, multi: true, useValue: AuthInterceptorService}
 ]
+
