@@ -1,1 +1,50 @@
-<p>register works!</p>
+<div>
+  <h2>Register</h2>
+  <form [formGroup]="registerForm">
+
+    <div>
+      <mat-form-field apperance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControleName="username">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field apperance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControleName="email">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field apperance="outline">
+        <mat-label>First name</mat-label>
+        <input matInput  formControleName="firstname">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field apperance="outline">
+        <mat-label>Last name</mat-label>
+        <input matInput  formControleName="lastename">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field apperance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControleName="password">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field apperance="outline">
+        <mat-label>Confirm password</mat-label>
+        <input matInput type="password" formControleName="confirmPassword">
+      </mat-form-field>
+    </div>
+
+    <button style="width: 20%" [disabled]="registerForm.invalid" (click)="submit()" mat-flat-button color="primary" >
+      Register
+    </button>
+  </form>
+</div>
