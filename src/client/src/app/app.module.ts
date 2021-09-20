@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModules} from "./material-modules";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
-import {authInterceptorProviders} from "./helper/auth-interceptor.service";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {authInterceptorProviders, AuthInterceptorService} from "./helper/auth-interceptor.service";
 import {authErrorInterceptorProvider} from "./helper/error-interceptor.service";
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -27,7 +27,7 @@ import { RegisterComponent } from './auth/register/register.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [authInterceptorProviders, authErrorInterceptorProvider],
+  providers: [authInterceptorProviders/*, authErrorInterceptorProvider*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

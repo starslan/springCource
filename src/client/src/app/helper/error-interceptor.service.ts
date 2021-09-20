@@ -5,9 +5,7 @@ import {NotificationService} from "../service/notification.service";
 import {Observable, throwError} from "rxjs";
 import {catchError} from "rxjs/operators";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ErrorInterceptorService implements HttpInterceptor{
 
   constructor(private tokenService: TokenStorageService,
@@ -29,5 +27,5 @@ export class ErrorInterceptorService implements HttpInterceptor{
 }
 
 export  const authErrorInterceptorProvider = [
-  {provide: HTTP_INTERCEPTORS, userClass: ErrorInterceptorService, multi: true, useValue: ErrorInterceptorService}
+  {provide: HTTP_INTERCEPTORS, userClass: ErrorInterceptorService, multi: true,  useValue: undefined}
 ];
