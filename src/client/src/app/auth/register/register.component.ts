@@ -30,12 +30,12 @@ export class RegisterComponent implements OnInit {
 
   createRegisterForm(): FormGroup{
     return this.fb.group({
-      username: ['', Validators.compose([Validators.required])],
-      email: ['', Validators.compose([Validators.email])],
-      password: ['', Validators.compose([Validators.required])],
-      confirmPassword: ['', Validators.compose([Validators.required])],
-      firstname: ['', Validators.compose([Validators.required])],
-      latsname: ['', Validators.compose([Validators.required])],
+      username: ['user123', Validators.compose([Validators.required])],
+      email: ['email@email.ru', Validators.compose([Validators.email])],
+      password: ['123', Validators.compose([Validators.required])],
+      confirmPassword: ['123', Validators.compose([Validators.required])],
+      firstname: ['Ruslan', Validators.compose([Validators.required])],
+      lastname: ['Starostenko', Validators.compose([Validators.required])],
     })
   }
 
@@ -44,9 +44,10 @@ export class RegisterComponent implements OnInit {
     this.authService.register({
       username: this.registerForm.value.username,
       password: this.registerForm.value.password,
+      confirmPassword: this.registerForm.value.confirmPassword,
       email: this.registerForm.value.email,
       firstname: this.registerForm.value.firstname,
-      latsname: this.registerForm.value.latsname,
+      lastname: this.registerForm.value.lastname,
     }).subscribe(data=>{
       console.log(data);
       this.tokenStorage.saveToken(data.token);
