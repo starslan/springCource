@@ -25,5 +25,5 @@ public class SignRequest {
     @NotBlank(message = "password не пустой" )
     @Size(min = 6)
     private String password;
-    private String conformPassword;
+    private String confirmPassword;
 }

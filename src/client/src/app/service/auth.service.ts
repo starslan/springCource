@@ -23,7 +23,7 @@ export class AuthService {
     return  this.http.post(AUTH_API + '/signup', {
       username: user.username,
       password: user.password,
-      confirmpassword:  user.confirmPassword,
+      confirmPassword:  user.confirmPassword,
       email: user.email,
       firstname: user.firstname,
       lastname: user.lastname,
