@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
-const IMAGE_API = 'http://localhost:8080/api/image/';
+
+const IMAGE_API = environment.apiUrl + '/api/image/';
 
 @Injectable({
   providedIn: 'root'

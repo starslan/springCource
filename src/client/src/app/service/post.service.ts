@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Post} from "../models/Post";
 import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
 
-const POST_API = 'http://localhost:8080/api/post/';
+const POST_API = environment.apiUrl + '/api/post/';
 
 @Injectable({
   providedIn: 'root'
