@@ -21,7 +21,7 @@ import ru.starslan.demo.validations.ResponseErrorValidation;
 
 import javax.validation.Valid;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/auth")
 @PreAuthorize("permitAll()")

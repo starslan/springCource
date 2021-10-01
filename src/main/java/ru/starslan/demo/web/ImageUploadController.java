@@ -14,7 +14,7 @@ import java.security.Principal;
 
 @RestController
 @RequestMapping("api/image")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 public class ImageUploadController {
 
     @Autowired
@@ -41,5 +41,11 @@ public class ImageUploadController {
     public ResponseEntity<ImageModel> getImageForUser(Principal principal){
         ImageModel userImage = imageService.getImageToUser(principal);
         return new ResponseEntity<>(userImage, HttpStatus.OK);
+    }
+
+    @GetMapping("/{postId}/image")
+    public ResponseEntity<ImageModel> getImageToPost(@PathVariable("postId") String postId) {
+        ImageModel postImage = imageService.getImageToPost(Long.parseLong(postId));
+        return new ResponseEntity<>(postImage, HttpStatus.OK);
     }
 }
