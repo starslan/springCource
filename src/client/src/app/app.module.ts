@@ -14,6 +14,10 @@ import { RegisterComponent } from './auth/register/register.component';
 import {errorInterceptorProvider} from "./helper/error-interceptor.service";
 import { NavigationComponent } from './layout/navigation/navigation.component';
 import { IndexComponent } from './layout/index/index.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { UserPostsComponent } from './user/user-posts/user-posts.component';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
+import { AddPostsComponent } from './user/add-posts/add-posts.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { IndexComponent } from './layout/index/index.component';
     LoginComponent,
     RegisterComponent,
     NavigationComponent,
-    IndexComponent
+    IndexComponent,
+    ProfileComponent,
+    UserPostsComponent,
+    EditUserComponent,
+    AddPostsComponent
   ],
   imports: [
     BrowserModule,
