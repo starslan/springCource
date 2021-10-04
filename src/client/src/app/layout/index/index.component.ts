@@ -37,7 +37,7 @@ export class IndexComponent implements OnInit {
         this.isPostsLoaded = true;
       })
 
-    this.userService.getCurrentUser(null)
+    this.userService.getCurrentUser()
       .subscribe( data => {
         this.user = data;
         this.isUserDataLoaded = true;
@@ -95,14 +95,20 @@ export class IndexComponent implements OnInit {
     }
   }
 
-  postComment(message: string, postId: number, postIndex: number): void{
+  fake(val:number|null){
+
+  }
+
+  postComment(message: string|null, postId: number|undefined, postIndex: number): void{
     const post = this.posts[postIndex];
     console.log(post);
-    this.commentService.addCommentToPost(postId, message)
-      .subscribe(data=>{
-        console.log(data);
-        post.comments?.push(data);
-      })
+    if(postId && message){
+      this.commentService.addCommentToPost(postId, message)
+        .subscribe(data=>{
+          console.log(data);
+          post.comments?.push(data);
+        })
+    }
 
   }
 

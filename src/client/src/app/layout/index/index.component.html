@@ -21,10 +21,11 @@
       <p *ngFor="let comment of post.comments"><span style="font-weight: 500">{{comment.username}}</span>: {{comment.message}}</p>
     </div>
 
-    <mat-form-field class="w-100">
+
+  <mat-form-field class="w-100" >
       <mat-label>Leave a comment...</mat-label>
-      <!-- <input   (keyup.enter)="postComment($event.currentTarget.value, post.id, i)" matInput #message maxlength="128">
-      <mat-hint align="end">{{message.value.length}} / 128</mat-hint>  -->
+     <input   (keyup.enter)="postComment($any($event.target).value, post.id, i)" matInput #message maxlength="128">
+      <mat-hint align="end">{{message.value.length}} / 128</mat-hint>
     </mat-form-field>
 
   </mat-card>
