@@ -57,7 +57,7 @@ public class PostController {
         return  new ResponseEntity<>(postDTOList, HttpStatus.OK);
     }
 
-    @GetMapping("/user/post")
+    @GetMapping("/user/posts")
     public ResponseEntity<List<PostDTO>> getAllPostForUser(Principal principal){
         List<PostDTO> postDTOList = postService.getAllPostForUser(principal)
                 .stream()
